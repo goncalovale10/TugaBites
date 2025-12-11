@@ -5,7 +5,7 @@ struct HomeView: View {
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 24) {
+            VStack(alignment: .leading, spacing: 28) {
                 
                 // TÍTULO
                 Text("Recipes Suggestions")
@@ -13,9 +13,9 @@ struct HomeView: View {
                     .foregroundColor(Color("GreenDark"))
                     .padding(.horizontal)
                 
-                // LISTA DE RECEITAS (APENAS 3 PARA COMEÇAR)
-                VStack(spacing: 24) {
-                    ForEach(repo.recipes.prefix(3)) { recipe in
+                // LISTA DE TODOS OS CARDS
+                VStack(spacing: 32) {
+                    ForEach(repo.recipes) { recipe in
                         NavigationLink(value: recipe) {
                             HomeRecipeCard(recipe: recipe)
                         }
@@ -23,7 +23,6 @@ struct HomeView: View {
                     }
                 }
                 .padding(.horizontal)
-                .padding(.top, 8)
             }
             .padding(.top, 12)
         }

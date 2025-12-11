@@ -2,41 +2,107 @@ import SwiftUI
 
 struct HomeRecipeCard: View {
     let recipe: Recipe
-    
+
     var body: some View {
-        VStack(spacing: 0) {
-            
+        VStack(alignment: .leading, spacing: 0) {
+
             // IMAGEM
             Image(recipe.imageName)
                 .resizable()
                 .scaledToFill()
                 .frame(height: 180)
                 .clipped()
-                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-            
-            // CAIXA VERDE
-            VStack(spacing: 8) {
-                
-                // ÍCONES
-                HStack(spacing: 24) {
-                    Label("\(recipe.calories) kcal", systemImage: "flame")
-                    Label("\(recipe.prepTimeMinutes) min", systemImage: "clock")
-                }
-                .font(.system(size: 14, weight: .medium))
-                .foregroundColor(.white)
-                
+                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+
+            // CARD INFERIOR
+            VStack(alignment: .leading, spacing: 12) {
+
                 // TÍTULO
                 Text(recipe.name)
                     .font(.system(size: 20, weight: .semibold))
-                    .foregroundColor(.white)
-                
+                    .foregroundColor(.black)
+
+                // TEMPO + KCAL
+                HStack(spacing: 20) {
+                    Label("\(recipe.prepTimeMinutes) min", systemImage: "clock")
+                    Label("\(recipe.calories) kcal", systemImage: "flame")
+                }
+                .font(.system(size: 14))
+                .foregroundColor(.gray)
+
+                // BOTÃO
+                HStack {
+                    Spacer()
+                    Text("View Recipe")
+                        .font(.system(size: 15, weight: .medium))
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 20)
+                        .background(Color("GreenDark"))
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                    Spacer()
+                }
+                .padding(.top, 4)
+
             }
-            .padding(.vertical, 16)
-            .frame(maxWidth: .infinity)
-            .background(Color("GreenPrimary"))
-            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-            .offset(y: -18)
+            .padding(16)
         }
-        .padding(.bottom, -18)
+        .background(Color.white)
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .shadow(color: .black.opacity(0.08), radius: 8, x: 0, y: 4)
+    }
+}
+import SwiftUI
+
+struct HomeRecipeCard: View {
+    let recipe: Recipe
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+
+            // IMAGEM
+            Image(recipe.imageName)
+                .resizable()
+                .scaledToFill()
+                .frame(height: 180)
+                .clipped()
+                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+
+            // CARD INFERIOR
+            VStack(alignment: .leading, spacing: 12) {
+
+                // TÍTULO
+                Text(recipe.name)
+                    .font(.system(size: 20, weight: .semibold))
+                    .foregroundColor(.black)
+
+                // TEMPO + KCAL
+                HStack(spacing: 20) {
+                    Label("\(recipe.prepTimeMinutes) min", systemImage: "clock")
+                    Label("\(recipe.calories) kcal", systemImage: "flame")
+                }
+                .font(.system(size: 14))
+                .foregroundColor(.gray)
+
+                // BOTÃO
+                HStack {
+                    Spacer()
+                    Text("View Recipe")
+                        .font(.system(size: 15, weight: .medium))
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 20)
+                        .background(Color("GreenDark"))
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                    Spacer()
+                }
+                .padding(.top, 4)
+
+            }
+            .padding(16)
+        }
+        .background(Color.white)
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .shadow(color: .black.opacity(0.08), radius: 8, x: 0, y: 4)
     }
 }

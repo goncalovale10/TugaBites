@@ -9,7 +9,6 @@ struct Recipe: Codable, Identifiable, Hashable {
     let calories: Int
     let ingredients: [String]
     let steps: [String]
-    let isPortugueseClassic: Bool
 
     init(
         id: Int,
@@ -20,7 +19,6 @@ struct Recipe: Codable, Identifiable, Hashable {
         calories: Int,
         ingredients: [String],
         steps: [String],
-        isPortugueseClassic: Bool = true
     ) {
         self.id = id
         self.name = name
@@ -30,6 +28,5 @@ struct Recipe: Codable, Identifiable, Hashable {
         self.calories = calories
         self.ingredients = ingredients
         self.steps = steps
-        self.isPortugueseClassic = isPortugueseClassic
     }
 }

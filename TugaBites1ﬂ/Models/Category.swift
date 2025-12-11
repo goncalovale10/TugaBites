@@ -13,7 +13,7 @@ enum Category: String, Codable, CaseIterable, Identifiable {
 
     var icon: String {
         switch self {
-        case .appetizer: return "takeoutbag.and.cup.and.straw"  
+        case .appetizer: return "takeoutbag.and.cup.and.straw"
         case .snack: return "takeoutbag.and.cup.and.straw.fill"
         case .soup: return "bowl"
         case .meat: return "fork.knife"
@@ -23,3 +23,4 @@ enum Category: String, Codable, CaseIterable, Identifiable {
         }
     }
 }
+
